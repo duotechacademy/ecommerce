@@ -2,7 +2,10 @@ package io.duotech.step_definitions;
 
 import static org.junit.Assert.*;
 
-
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
 
@@ -10,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.duotech.beans.User;
 import io.duotech.pages.HomePage;
 import io.duotech.pages.LoginPage;
 import io.duotech.pages.MyAccountPage;
@@ -77,6 +81,51 @@ public class LoginStepDefs {
 	   String actual = myaccountpage.welcomeMessage.getText();
 	   assertEquals(welcomeMessage, actual);
 	
+	}
+	
+	
+	@When("I enter the following credentials, I should be able to login")
+	public void i_enter_the_following_credentials_I_should_be_able_to_login(Map<String, String> combinations) {
+	    LoginPage loginPage = new LoginPage();
+	    MyAccountPage myAccountPage = new MyAccountPage();
+	   
+	    Set<Entry<String, String>> entrySet = combinations.entrySet();
+	    
+	    for (Entry<String, String> entry : entrySet) {
+	    	String email = entry.getKey();
+	    	String password = entry.getValue();
+	    	loginPage.emailInputBox.sendKeys(email);
+	    	loginPage.passwordInputBox.sendKeys(password);
+	    	loginPage.signInButton.click();
+	    	
+	    	i_should_be_able_to_land_on_welcome_page_and_read_welcome_message();
+	    	
+	    	myAccountPage.logOutLink.click();
+		}
+	    
+	    
+	    
+		
+	}
+	
+	
+	@When("I enter valid email and click Create Account")
+	public void i_enter_valid_email_and_click_Create_Account() {
+	    
+	}
+	
+	
+	@When("I should be able to pass the following data")
+	public void i_should_be_able_to_pass_the_following_data(List<User> list) {
+		
+
+		for (User user : list) {
+			System.out.println(user.getFirstName() + " " +user.getLastName()  + " "+user.getAddress() + " " +
+		user.getCity() + " " + user.getZip());
+		}
+
+
+
 	}
 
 

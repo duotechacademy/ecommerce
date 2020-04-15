@@ -1,17 +1,27 @@
 package io.duotech.step_definitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.duotech.pages.DressesPage;
 import io.duotech.pages.HomePage;
+import io.duotech.pages.LoginPage;
 import io.duotech.pages.ProductPage;
 import io.duotech.utilities.Driver;
 
 public class ProductInfoStepDefs {
 	String homepageName;
 	Integer globalTimes;
+	
+	DressesPage dressPage;
 	
 	@When("I click on Blouse")
 	public void i_click_on_Blouse() {
@@ -22,7 +32,7 @@ public class ProductInfoStepDefs {
 	@Then("The product page should also display Blouse")
 	public void the_product_page_should_also_display_Blouse() {
 	    ProductPage productPage = new ProductPage();
-	    String productPageName = productPage.productName.getText()+"sdavgd";
+	    String productPageName = productPage.productName.getText();
 	    
 	    assertEquals(homepageName, productPageName);
 	}
@@ -82,7 +92,53 @@ public class ProductInfoStepDefs {
 	public void i_verify_the_third_step() {
 	    System.out.println("3");
 
+	}@When("I click on Dresses link")
+	public void i_click_on_Dresses_link() {
+          new HomePage().dressesLink.click();
+
 	}
+
+	@Then("The Casual Dresses subcategory should be displayed")
+	public void the_Casual_Dresses_subcategory_should_be_displayed() {
+	   dressPage = new DressesPage();
+	    
+	    
+	    assertTrue(dressPage.casualDresses.isDisplayed());
+	}
+	
+	@Then("The following subcategories should be displayed")
+	public void the_following_subcategories_should_be_displayed(List<String> subcategories) {
+	    dressPage = new DressesPage();
+
+		for (String dress : subcategories) {
+			  assertTrue(dressPage.getSubcategory(dress).isDisplayed());
+		}
+	  
+		
+		
+	}
+	
+	@Then("The following colors should be displayed")
+	public void the_following_colors_should_be_displayed(List<String> colors) {
+			dressPage = new DressesPage();
+			
+			for (String string : colors) {
+				
+				assertTrue(dressPage.getColorElement(string).isDisplayed());
+
+			}
+	}
+	
+	
+		
+
+
+
+
+
+	
+	
+
 
 
 

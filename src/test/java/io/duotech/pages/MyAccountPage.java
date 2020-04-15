@@ -14,5 +14,10 @@ public class MyAccountPage {
 	
 	@FindBy (className = "info-account")
 	public WebElement welcomeMessage;
+	
+	@FindBy (xpath = "//a[@title='Log me out']")
+	public WebElement logOutLink;
+	
+	
 
 }

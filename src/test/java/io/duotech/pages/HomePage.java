@@ -20,6 +20,10 @@ public class HomePage {
 	@FindBy (xpath = "(//a[@title='Blouse'])[2]")
 	public WebElement blouse;
 
+
+	@FindBy (xpath = "//body[@id='index']/div[@id='page']/div[@class='header-container']/header[@id='header']/div/div[@class='container']/div[@class='row']/div[@id='block_top_menu']/ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li[2]/a[1]")
+	public WebElement dressesLink;
+
 	
 
 }
