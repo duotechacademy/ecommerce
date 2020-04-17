@@ -20,5 +20,11 @@ public class LoginPage {
 	
 	@FindBy (id = "SubmitLogin")
 	public WebElement signInButton;
+	
+	@FindBy (id = "email_create")
+	public WebElement createAccountEmail;
+	
+	@FindBy (id = "SubmitCreate")
+	public WebElement createAccountButton;
 
 }

@@ -8,12 +8,13 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
-
+import com.github.javafaker.Faker;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.duotech.beans.User;
+import io.duotech.pages.CreateAccountPage;
 import io.duotech.pages.HomePage;
 import io.duotech.pages.LoginPage;
 import io.duotech.pages.MyAccountPage;
@@ -111,22 +112,41 @@ public class LoginStepDefs {
 	
 	@When("I enter valid email and click Create Account")
 	public void i_enter_valid_email_and_click_Create_Account() {
-	    
+		
+		LoginPage lp = new LoginPage();
+		lp.createAccountEmail.sendKeys(new Faker().internet().emailAddress());
+	    lp.createAccountButton.click();
 	}
 	
 	
-	@When("I should be able to pass the following data")
+	@When("I should be able to pass the following data and click on register and see the name")
 	public void i_should_be_able_to_pass_the_following_data(List<User> list) {
 		
-
-		for (User user : list) {
-			System.out.println(user.getFirstName() + " " +user.getLastName()  + " "+user.getAddress() + " " +
-		user.getCity() + " " + user.getZip());
-		}
-
-
-
+		CreateAccountPage cp = new CreateAccountPage();
+		
+		
+		
+		cp.firstName.sendKeys(list.get(0).getFirstName());
+		cp.lastName.sendKeys(list.get(0).getLastName());
+		cp.password.sendKeys(list.get(0).getPassword());
+		cp.selectDOB();
+		cp.address.sendKeys(list.get(0).getAddress());
+		cp.city.sendKeys(list.get(0).getCity());
+		cp.selectState();
+		cp.zip.sendKeys(list.get(0).getZip());
+		cp.phoneNo.sendKeys(list.get(0).getPhone());
+		
+		cp.registerButton.click();
+		
+		String expected = list.get(0).getFirstName() + " " + list.get(0).getLastName();
+		String actual = new MyAccountPage().customerName.getText();
+		assertEquals(expected, actual);
+		
 	}
+	
+	
+
+		
 
 
 }

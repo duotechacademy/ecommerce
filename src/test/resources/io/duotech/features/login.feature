@@ -49,15 +49,15 @@ Feature: Login functionality
 					|duotech2@gmail.com | duotech22  |
 					|duotech3@gmail.com | duotech333 |
 			
-		@test
+		
 		Scenario: Verify user registration
 			
 			
 			And I enter valid email and click Create Account
-			And I should be able to pass the following data
+			And I should be able to pass the following data and click on register and see the name
 					|First Name  | Last Name  | Address            | Password | City   |  Zip  |  Phone     |
 					|John        | Smith      | 8133 Leesburg Pike | dt12345  | Vienna | 22812 | 2021234567 |
-					|Jane        | Doe        | 123 Main st        | dt66666  | Vienna | 22812 | 7034567890 |
+				
 					
 		
  

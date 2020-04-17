@@ -27,5 +27,10 @@ public class ProductPage {
 	@FindBy (className = "icon-minus")
 	public WebElement minusButton;
 
+	
+	@FindBy (xpath = "//span[@id='our_price_display']")
+	public WebElement price;
+	
+
 
 }

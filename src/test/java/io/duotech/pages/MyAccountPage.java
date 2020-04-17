@@ -18,6 +18,10 @@ public class MyAccountPage {
 	@FindBy (xpath = "//a[@title='Log me out']")
 	public WebElement logOutLink;
 	
+	@FindBy (xpath = "//a[@title='View my customer account']")
+	public WebElement customerName;
+
+	
 	
 
 }

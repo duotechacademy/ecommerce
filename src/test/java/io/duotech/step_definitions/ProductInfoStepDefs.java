@@ -130,6 +130,31 @@ public class ProductInfoStepDefs {
 	}
 	
 	
+	
+	@When("I click on {string}")
+	public void i_click_on(String product) {
+		 HomePage homepage = new HomePage();
+		 homepage.getProduct(product).click();
+	}
+
+	@Then("The product page should also display {string}")
+	public void the_product_page_should_also_display(String expectedName) {
+		ProductPage pp = new ProductPage();
+		String actualName = pp.productName.getText();
+		assertEquals(expectedName, actualName);
+
+	}
+
+	@Then("The product price should be {double}")
+	public void the_product_price_should_be(Double expected) {
+		ProductPage pp = new ProductPage();
+		Double actual = Double.parseDouble(pp.price.getText().substring(1));
+		assertEquals(expected, actual);
+
+	}
+
+	
+	
 		
 
 
