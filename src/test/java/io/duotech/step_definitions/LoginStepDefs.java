@@ -123,7 +123,7 @@ public class LoginStepDefs {
 	public void i_should_be_able_to_pass_the_following_data(List<User> list) {
 		
 		CreateAccountPage cp = new CreateAccountPage();
-		
+		MyAccountPage myAccountpage = new MyAccountPage();
 		
 		
 		cp.firstName.sendKeys(list.get(0).getFirstName());
@@ -139,9 +139,19 @@ public class LoginStepDefs {
 		cp.registerButton.click();
 		
 		String expected = list.get(0).getFirstName() + " " + list.get(0).getLastName();
-		String actual = new MyAccountPage().customerName.getText();
+		String actual = myAccountpage.customerName.getText();
 		assertEquals(expected, actual);
 		
+		myAccountpage.logOutLink.click();
+		
+	}
+	
+	
+	@When("I enter valid email {string} and click Create Account")
+	public void i_enter_valid_email_and_click_Create_Account(String string) {
+		LoginPage lp = new LoginPage();
+		lp.createAccountEmail.sendKeys(string);
+	    lp.createAccountButton.click();
 	}
 	
 	

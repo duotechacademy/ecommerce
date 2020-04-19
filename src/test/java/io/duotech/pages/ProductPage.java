@@ -30,6 +30,17 @@ public class ProductPage {
 	
 	@FindBy (xpath = "//span[@id='our_price_display']")
 	public WebElement price;
+
+	@FindBy (xpath = "//span[@itemprop='sku']")
+	public WebElement model;
+	
+	@FindBy (xpath = "//tr[@class='odd']//td[2]")
+	public WebElement composition;
+	
+	@FindBy (xpath = "//tr[@class='even']//td[2]")
+	public WebElement style;
+	
+	
 	
 
 
