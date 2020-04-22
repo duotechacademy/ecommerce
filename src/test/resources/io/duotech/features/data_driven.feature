@@ -2,7 +2,7 @@ Feature: Verify products
 
 Background: 
 
-	@new
+	@smoke
 Scenario: Verify product name 
 	
 			

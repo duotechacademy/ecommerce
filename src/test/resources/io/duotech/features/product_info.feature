@@ -2,7 +2,7 @@
 Feature: Product description
 		
 		
-		 @smoke
+		 @test
 		Scenario: Verify product name 
 		
 			Given I am on the homepage
@@ -10,7 +10,7 @@ Feature: Product description
 			Then The product page should also display Blouse
 		
 		
-	@smoke
+	@test
 		Scenario: Verify default product quantity
 		
 			Given I am on the homepage
@@ -22,20 +22,20 @@ Feature: Product description
 			
 	
 		
-	 @plusminus
+	 @test
 		Scenario: Verify plus and minus buttons
 		
 			Given I am on the homepage
 			When I click on Blouse
 			And I land on product page
-			When I click on plus button 5 times
+			When I click on plus button 10 times
 			Then The quantity should be correct
-			And I click on minus button 3 times
+			And I click on minus button 5 times
 			Then The quantity should be correct
 			
 
 
-		
+			
 		Scenario: Verify the database
 		
 			Given the first step
@@ -43,7 +43,7 @@ Feature: Product description
 			Then I verify the third step
 			
 		#Implementing a scenario without using DataTable
-		
+		 @test
 		Scenario: Verify Dress page subcategories
 		
 					Given I am on the homepage

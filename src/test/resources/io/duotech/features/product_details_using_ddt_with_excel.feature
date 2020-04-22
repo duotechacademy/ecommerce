@@ -2,7 +2,7 @@
 Feature: Verify the product details
   
   
-  	@test	
+  	
   Scenario: Verify the products on promotion
     Given I am on the homepage
  	  Then The promoted products should be displayed 
