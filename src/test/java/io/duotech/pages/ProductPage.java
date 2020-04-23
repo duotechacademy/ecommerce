@@ -39,6 +39,13 @@ public class ProductPage {
 	
 	@FindBy (xpath = "//tr[@class='even']//td[2]")
 	public WebElement style;
+
+		
+	@FindBy (xpath = "//span[contains(text(),'Add to cart')]")
+	public WebElement addToCart;
+
+	@FindBy (xpath = "//span[contains(text(),'Proceed to checkout')]")
+	public WebElement proceed;
 	
 	
 	

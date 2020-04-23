@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith (Cucumber.class)
 @CucumberOptions (
 		
-		plugin = {"rerun:target/rerun.txt",
+		plugin = {"pretty",
 				"html:target/built-in-html-report",
 				"json:target/Cucumber.json "
 		

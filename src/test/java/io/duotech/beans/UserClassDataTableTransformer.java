@@ -1,4 +1,4 @@
-package io.duotech.step_definitions;
+package io.duotech.beans;
 
 import java.util.Locale;
 import java.util.Map;
@@ -7,7 +7,6 @@ import io.cucumber.core.api.TypeRegistry;
 import io.cucumber.core.api.TypeRegistryConfigurer;
 import io.cucumber.datatable.DataTableType;
 import io.cucumber.datatable.TableEntryTransformer;
-import io.duotech.beans.User;
 
 public class UserClassDataTableTransformer implements TypeRegistryConfigurer {
     

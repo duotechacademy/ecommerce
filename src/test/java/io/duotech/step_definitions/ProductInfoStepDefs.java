@@ -1,6 +1,7 @@
 package io.duotech.step_definitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class ProductInfoStepDefs {
 	    ProductPage productPage = new ProductPage();
 	    String productPageName = productPage.productName.getText();
 	    
-	    assertEquals(homepageName, productPageName);
+	    assertNotEquals(homepageName, productPageName);
 	}
 	
 	

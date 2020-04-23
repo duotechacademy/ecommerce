@@ -1,32 +1,7 @@
-Feature: Verify products
+Feature: User registration 
 
-Background: 
 
-	@smoke
-Scenario: Verify product name 
-	
-			
-			When I click on "Blouse"
-			Then The product page should also display "Blouse"
-			And  The product price should be 27.00
-			
-
-Scenario Outline: Verify product info using Scenario Outline
-			
-			
-			When I click on "<product name>"
-			Then The product page should also display "<product name>"
-			And  The product price should be <price>
-			
-			Examples:
-			 	|product name               |price |
-			  |Faded Short Sleeve T-shirts|16.51 |
-			  |Blouse                     |27.00 |
-			  |Printed Dress              |26.00 |
-			  |Printed Summer Dress       |28.98 |
-			  |Printed Chiffon Dress      |16.40 |
-	  
-	Scenario Outline: Verify multiple user registration
+Scenario Outline: Verify multiple user registration
 	
 			Given I am on the homepage
 			When I click on Sign in
@@ -54,4 +29,5 @@ Scenario Outline: Verify product info using Scenario Outline
 				|Krissie     |Rickell        | 35724 Anthes Plaza        | East Keeleyside   | 27197           | 560-330-7342    |
 				|Jilleen     |O'Cosgra       | 56 Mayer Park             | Mohrside          | 82727           | 613.138.9560    |
 					     
-			
+					     
+					     
