@@ -5,9 +5,9 @@ Feature: Login functionality
 			Given I am on the homepage
 			When I click on Sign in
 		
-		# Scenario Title
+		@logging
 		Scenario: Verify login page title 
-		As a user, I want to be able to login #Scenario Description of the scenario
+		
 			
 			Then The login page title should be Login - My Store
 	

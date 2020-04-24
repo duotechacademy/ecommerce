@@ -10,19 +10,19 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith (Cucumber.class)
 @CucumberOptions (
 		
-		plugin = {"pretty",
+		plugin = {
 				"html:target/built-in-html-report",
 				"json:target/Cucumber.json "
 		
 		},
 					
-		tags = "@test", // "@smoke and @test"
+		tags = "@logging", // "@smoke and @test"
 		features = "src/test/resources/io/duotech/features",
 		glue = "io/duotech/step_definitions"
-		,strict = true
+//		,strict = true
 //		,dryRun = true
 		,monochrome =true
-		,stepNotifications = true
+//		,stepNotifications = true
 //		,snippets = SnippetType.CAMELCASE
 		)
 public class CukeRunner {

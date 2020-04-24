@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.github.javafaker.Faker;
 
 import io.cucumber.java.en.Given;
@@ -20,28 +23,55 @@ import io.duotech.pages.LoginPage;
 import io.duotech.pages.MyAccountPage;
 import io.duotech.utilities.ConfigReader;
 import io.duotech.utilities.Driver;
-import junit.framework.Assert;
+import io.duotech.utilities.LoggerUtils;
+
 
 public class LoginStepDefs {
+	
+	
+	Logger logger = LoggerUtils.getLogger(LoginStepDefs.class);
+	
+	
+	
 	
 	
 	@Given("I am on the homepage")
 	public void i_am_on_the_homepage() {
 		
 		Driver.getDriver().get(ConfigReader.getConfiguration("url"));
+		logger.info("Navigating to a homepage");
+			
 	}
 
 	@When("I click on Sign in")
 	public void i_click_on_Sign() {
 	    HomePage homepage = new HomePage();
+	    logger.info("Clicking on Sign in");
 	    homepage.signInLink.click();
 	}
 
 	@Then("The login page title should be Login - My Store")
 	public void the_login_page_title_should_be_Login_My_Store() {
-	   String actual = Driver.getDriver().getTitle();
+	   
+		logger.info("Getting the page title");
+		String actual = Driver.getDriver().getTitle();
 	   String expected = "Login - My Store";
-	   assertEquals(expected, actual);
+	   logger.info("Verifying the title");
+	   
+	   try {
+		assertEquals(expected, actual);
+		logger.info("Title Verification passed");
+		   
+	} catch (AssertionError e) {
+		 
+	//	 logger.error("Title Verification failed" ,e);
+		logger.error("Title Verification failed");
+		logger.error(e.toString());
+		throw e; //re-throw my error so that my test fails
+	}
+	   
+	  
+	   
 	}
 	
 	@Then("I should be able to see email, password boxes and login button")

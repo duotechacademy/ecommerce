@@ -2,7 +2,7 @@
 Feature: Product description
 		
 		
-
+@logging
 		Scenario: Verify product name 
 		
 			Given I am on the homepage

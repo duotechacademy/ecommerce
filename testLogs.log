@@ -1,0 +1,8 @@
+2020-04-23 22:58:01 INFO  LoginStepDefs:42 - Navigating to a homepage
+2020-04-23 22:58:01 INFO  LoginStepDefs:49 - Clicking on Sign in
+2020-04-23 22:58:02 INFO  LoginStepDefs:56 - Getting the page title
+2020-04-23 22:58:02 INFO  LoginStepDefs:59 - Verifying the title
+2020-04-23 22:58:02 INFO  LoginStepDefs:63 - Title Verification passed
+2020-04-23 22:58:08 INFO  LoginStepDefs:42 - Navigating to a homepage
+2020-04-23 22:58:08 INFO  ProductInfoStepDefs:41 - Clicking on blouse
+2020-04-23 22:58:09 INFO  ProductInfoStepDefs:48 - Verifying the product name as Blouse

@@ -7,6 +7,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.util.Set;
 
 import io.cucumber.java.en.Given;
@@ -17,6 +21,7 @@ import io.duotech.pages.HomePage;
 import io.duotech.pages.LoginPage;
 import io.duotech.pages.ProductPage;
 import io.duotech.utilities.Driver;
+import io.duotech.utilities.LoggerUtils;
 
 public class ProductInfoStepDefs {
 	String homepageName;
@@ -24,18 +29,24 @@ public class ProductInfoStepDefs {
 	
 	DressesPage dressPage;
 	
+	
+	
+	Logger logger = LoggerUtils.getLogger(ProductInfoStepDefs.class);
+	
+	
 	@When("I click on Blouse")
 	public void i_click_on_Blouse() {
 	    HomePage homepage = new HomePage();
 	    homepageName = homepage.blouse.getText();
+	    logger.info("Clicking on blouse");
 	    homepage.blouse.click();
 	}
 	@Then("The product page should also display Blouse")
 	public void the_product_page_should_also_display_Blouse() {
 	    ProductPage productPage = new ProductPage();
 	    String productPageName = productPage.productName.getText();
-	    
-	    assertNotEquals(homepageName, productPageName);
+	    logger.info("Verifying the product name as Blouse");
+	    assertEquals(homepageName, productPageName);
 	}
 	
 	
