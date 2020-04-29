@@ -9,6 +9,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.duotech.utilities.ConfigReader;
+import io.duotech.utilities.DatabaseUtils;
 import io.duotech.utilities.Driver;
 
 
@@ -30,13 +31,13 @@ public class Hooks {
 
 	}
 	
-	
-//	@Before ("@database")
-//	public void setUpApi() {
-//		
-//		System.out.println("Setting up connection  to database");
+	@Before ("@db")
+	public void setUpDB() {
+		DatabaseUtils.createConnection();
 
-//}
+}
+	
+	
 	
 	@After()
 	public void tearDown(Scenario scenario) {
@@ -48,13 +49,13 @@ public class Hooks {
 	}
 
 	
-//	@After ("@database")
-//	public void tearDownDatbse() {
-//
-//		System.out.println("Tearing down db");
-//		
-//		
-//	}
+	@After ("@db")
+	public void tearDownDatbse() {
+
+		DatabaseUtils.close();
+		
+		
+	}
 
 
 }

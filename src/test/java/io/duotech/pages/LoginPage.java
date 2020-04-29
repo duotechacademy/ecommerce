@@ -27,4 +27,7 @@ public class LoginPage {
 	@FindBy (id = "SubmitCreate")
 	public WebElement createAccountButton;
 
+	@FindBy (xpath = "//a[@title='Addresses']")
+	public WebElement  myAddress;
+
 }
